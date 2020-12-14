@@ -54,4 +54,18 @@ public class Familia {
         }
         return totalDependente;
     }
+
+    /**
+     * Método que retorna a idade do pretendente da familia
+     * @return idadePretendente
+     */
+    public int getIdadePretendente(){
+        int idadePretendente = 0;
+        for (Pessoa p: pessoas) {
+            if (p.getTipo().equals("Pretendente")){
+                idadePretendente = p.getIdade();
+            }
+        }
+        return idadePretendente;
+    }
 }

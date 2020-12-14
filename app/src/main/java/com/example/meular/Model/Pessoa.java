@@ -1,15 +1,22 @@
 package com.example.meular.Model;
 
-import java.sql.Timestamp;
 import java.util.Calendar;
 
 public class Pessoa {
+
     private String nome;
     private String tipo;
-    private Timestamp dataNascimento;
-    private int Renda;
+    private String dataNascimento;
+    private int renda;
 
     public Pessoa() {
+    }
+
+    public Pessoa(String nome, String tipo, String dataNascimento, int renda) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.dataNascimento = dataNascimento;
+        this.renda = renda;
     }
 
     public String getNome() {
@@ -28,30 +35,26 @@ public class Pessoa {
         this.tipo = tipo;
     }
 
-    public Timestamp getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Timestamp dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
     public int getRenda() {
-        return Renda;
+        return this.renda;
     }
 
     public void setRenda(int renda) {
-        Renda = renda;
+        this.renda = renda;
     }
 
     public int getIdade(){
         Calendar hoje = Calendar.getInstance();
         int anoAtual = hoje.get(Calendar.YEAR);
-
-        Calendar dataNasc = Calendar.getInstance();
-        dataNascimento.setTime(dataNascimento.getTime());
-        int anoNasc = dataNasc.get(Calendar.YEAR);
-
+        int anoNasc = Integer.parseInt(dataNascimento.substring(6, 10));
         return anoAtual - anoNasc;
     }
 }
