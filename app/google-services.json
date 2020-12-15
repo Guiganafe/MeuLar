@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "862708436465",
+    "project_id": "meu-lar-f5879",
+    "storage_bucket": "meu-lar-f5879.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862708436465:android:d7452b3cc897a1dff30850",
+        "android_client_info": {
+          "package_name": "com.example.meular"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862708436465-11tluka4vuuaefmtor1u1pi1mk22bhb9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meular",
+            "certificate_hash": "f2822a03e38b75df78bf7a52118cf64ed30a91e2"
+          }
+        },
+        {
+          "client_id": "862708436465-14u9ni94bd4lmacu3v16hlrdnsnh4oqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq1S9hziTGZO5SJC6Bfs8vz_yu2KwPRdc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862708436465-14u9ni94bd4lmacu3v16hlrdnsnh4oqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
