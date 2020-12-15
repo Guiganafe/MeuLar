@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.meular.Interface.Dependente.DependenteInterface;
@@ -34,6 +36,10 @@ import java.util.Calendar;
 public class AdicionarFamilia_Fragment extends Fragment {
 
     public ArrayList<Familia> familias = new ArrayList<>();
+    private EditText nome, renda, numDependentes, dataNascimento, status;
+    private String nome_tx, dataNascimento_tx, status_tx;
+    private int numDep_tx, renda_tx;
+    private Button addFamilia;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,26 +52,28 @@ public class AdicionarFamilia_Fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        criarFamilia();
+        inicializarComponentes(view);
 
-        gerarContemplados();
+        onCliclController();
     }
 
-    private void gerarContemplados() {
-        for (Familia f: familias) {
-            if(f.getStatus().equals("0")){
-                Calendar hoje = Calendar.getInstance();
+    private void gerarContemplados(Familia f) {
+        if(f.getStatus().equals("0")){
+            Calendar hoje = Calendar.getInstance();
 
-                Contemplados familiaContemplada = new Contemplados();
+            Contemplados familiaContemplada = new Contemplados();
 
-                int pontuacao = calcularPontuacao(f);
-                familiaContemplada.setFamiliaContemplada(f);
-                familiaContemplada.setPontuacaoTotal(pontuacao);
-                familiaContemplada.setDataSelecao( hoje.get(Calendar.DAY_OF_MONTH) + "/"
-                        +  (hoje.get(Calendar.MONTH) + 1) + "/" + hoje.get(Calendar.YEAR));
+            int pontuacao = calcularPontuacao(f);
+            familiaContemplada.setFamiliaContemplada(f);
+            familiaContemplada.setPontuacaoTotal(pontuacao);
+            familiaContemplada.setDataSelecao( hoje.get(Calendar.DAY_OF_MONTH) + "/"
+                    +  (hoje.get(Calendar.MONTH) + 1) + "/" + hoje.get(Calendar.YEAR));
 
-                ContempladosBase.getInstance().addContemplados(familiaContemplada);
-            }
+            Toast.makeText(requireActivity(), "Familia de: " + nome_tx + " adicionada!", Toast.LENGTH_SHORT).show();
+
+            ContempladosBase.getInstance().addContemplados(familiaContemplada);
+        } else {
+            Toast.makeText(requireActivity(), "Familia de: " + nome_tx + " reprovada!", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -111,7 +119,48 @@ public class AdicionarFamilia_Fragment extends Fragment {
         return pontuacao;
     }
 
+    private void onCliclController(){
+        addFamilia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                criarFamilia();
+            }
+        });
+    }
+
     private void criarFamilia() {
+        nome_tx = nome.getText().toString().isEmpty() ? "Sem nome" : nome.getText().toString();
+        renda_tx = renda.getText().toString().isEmpty() ? 0 : Integer.parseInt(renda.getText().toString());
+        numDep_tx = numDependentes.getText().toString().isEmpty() ? 1 : Integer.parseInt(numDependentes.getText().toString());
+        dataNascimento_tx = dataNascimento.getText().toString().isEmpty() ? "15/12/2020" : dataNascimento.getText().toString();
+        status_tx = status.getText().toString().isEmpty() ? "1" : status.getText().toString();
+
+        ArrayList<Pessoa> pessoas = new ArrayList<>();
+        Pessoa p = new Pessoa(nome_tx, "Pretendente", dataNascimento_tx, renda_tx);
+        pessoas.add(p);
+
+        for(int i = 0; i < numDep_tx; i++){
+            Pessoa dependente = new Pessoa("Filho " + (i+1), "Dependente", "10/12/2005", 0);
+            pessoas.add(dependente);
+        }
+
+        Familia familia = new Familia();
+        familia.setPessoas(pessoas);
+        familia.setStatus(status_tx);
+
+        gerarContemplados(familia);
+    }
+
+    private void inicializarComponentes(View view){
+        nome = (EditText) view.findViewById(R.id.edt_nome_pretendente);
+        renda = (EditText) view.findViewById(R.id.edt_renda_familia);
+        numDependentes = (EditText) view.findViewById(R.id.edt_num_dependentes);
+        dataNascimento = (EditText) view.findViewById(R.id.edt_data_nasc);
+        status = (EditText) view.findViewById(R.id.edt_status);
+        addFamilia = (Button) view.findViewById(R.id.btn_add);
+    }
+
+    private void criarFamilia2() {
         //Familia 1
         ArrayList<Pessoa> pessoasf1 = new ArrayList<>();
         Pessoa p = new Pessoa("João Dias", "Pretendente", "15/02/1990", 500);

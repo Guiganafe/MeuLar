@@ -6,13 +6,153 @@
     android:layout_height="match_parent"
     tools:context=".View.AdicionarFamilia_Fragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicionar Familia"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginBottom="10sp"
+                android:paddingTop="5dp"
+                android:text="Adicionar Familia"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="5sp"
+                android:text="Nome completo"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_nome_pretendente"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginBottom="5sp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="5sp"
+                android:text="Renda total"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_renda_familia"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginBottom="5sp"
+                android:inputType="number"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="5sp"
+                android:text="Numero de dependentes"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_num_dependentes"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginBottom="5sp"
+                android:inputType="number"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="5sp"
+                android:text="Data de nascimento"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_data_nasc"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginBottom="5sp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10sp"
+                android:layout_marginTop="5sp"
+                android:layout_marginEnd="10sp"
+                android:paddingTop="10sp"
+                android:paddingBottom="5sp"
+                android:text="Status"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/edt_status"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_marginBottom="5sp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:singleLine="true" />
+
+            <Button
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Adicionar Familia"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
