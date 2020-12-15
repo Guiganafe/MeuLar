@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_app"
+    app:startDestination="@id/AdicionarFamilia">
+
+    <fragment
+        android:id="@+id/AdicionarFamilia"
+        android:name="com.example.meular.View.AdicionarFamilia_Fragment"
+        android:label="fragment_adicionar_familia"
+        tools:layout="@layout/fragment_adicionar_familia" />
+
+    <fragment
+        android:id="@+id/Contemplados"
+        android:name="com.example.meular.View.ContempladosFragment"
+        android:label="fragment_contemplados"
+        tools:layout="@layout/fragment_contemplados" />
+</navigation>

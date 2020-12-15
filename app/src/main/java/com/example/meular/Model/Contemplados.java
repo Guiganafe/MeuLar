@@ -2,22 +2,22 @@ package com.example.meular.Model;
 
 import java.sql.Timestamp;
 
-public class Beneficiado {
+public class Contemplados {
 
-    private Familia familiaBeneficiada;
+    private Familia familiaContemplada;
     private int criteriosAtendidos;
     private int pontuacaoTotal;
-    private Timestamp dataSelecao;
+    private String dataSelecao;
 
-    public Beneficiado() {
+    public Contemplados() {
     }
 
-    public Familia getFamiliaBeneficiada() {
-        return familiaBeneficiada;
+    public Familia getFamiliaContemplada() {
+        return familiaContemplada;
     }
 
-    public void setFamiliaBeneficiada(Familia familiaBeneficiada) {
-        this.familiaBeneficiada = familiaBeneficiada;
+    public void setFamiliaContemplada(Familia familiaContemplada) {
+        this.familiaContemplada = familiaContemplada;
     }
 
     public int getCriteriosAtendidos() {
@@ -36,11 +36,11 @@ public class Beneficiado {
         this.pontuacaoTotal = pontuacaoTotal;
     }
 
-    public Timestamp getDataSelecao() {
+    public String getDataSelecao() {
         return dataSelecao;
     }
 
-    public void setDataSelecao(Timestamp dataSelecao) {
+    public void setDataSelecao(String dataSelecao) {
         this.dataSelecao = dataSelecao;
     }
 }
